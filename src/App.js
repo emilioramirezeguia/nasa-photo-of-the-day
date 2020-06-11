@@ -2,15 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL, API_KEY  } from "./constants/secrets.js";
 import "./App.css";
-import Image from "./components/image/image.js";
+import Text from "./components/header/text/text.js";
+import ImageContainer from "./components/image/imageContainer.js";
 
 function App() {
-  const [nasa, setNasa] = useState([]);
+  const [photoOfTheDay, setPhotoOfTheDay] = useState([]);
 
   useEffect( function() {
     axios.get(`${BASE_URL}api_key=${API_KEY}`)
     .then(response => {
-      setNasa(response.data);
+      setPhotoOfTheDay(response.data);
     })
     .catch(error => {
       console.log("Error: ", error);
@@ -19,9 +20,10 @@ function App() {
 
   return (
     <div className="App">
-      <Image url={nasa.url}/>
+      <Text text="Astronomy Picture of the Day"/>
+      <ImageContainer title={photoOfTheDay.tital} date={photoOfTheDay.date} url={photoOfTheDay.url} explanation={photoOfTheDay.explanation}/>
     </div>
-  );
+  )
 }
 
 export default App;

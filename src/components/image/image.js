@@ -5,7 +5,7 @@ function Image(props) {
 
     return (
         <div>
-            <img src={url} alt="nasa image"></img>
+            <img src={url}></img>
         </div>
     )
 }
