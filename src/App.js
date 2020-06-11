@@ -6,7 +6,7 @@ import Text from "./components/header/text/text.js";
 import ImageContainer from "./components/image/imageContainer.js";
 
 function App() {
-  const [photoOfTheDay, setPhotoOfTheDay] = useState([]);
+  const [photoOfTheDay, setPhotoOfTheDay] = useState({});
 
   useEffect( function() {
     axios.get(`${BASE_URL}api_key=${API_KEY}`)
@@ -20,8 +20,13 @@ function App() {
 
   return (
     <div className="App">
-      <Text text="Astronomy Picture of the Day"/>
-      <ImageContainer title={photoOfTheDay.tital} date={photoOfTheDay.date} url={photoOfTheDay.url} explanation={photoOfTheDay.explanation}/>
+      <Text medium>Astronomy photo of the day</Text>
+      <ImageContainer 
+        title={photoOfTheDay.title} 
+        date={photoOfTheDay.date} 
+        url={photoOfTheDay.url} 
+        explanation={photoOfTheDay.explanation}
+      />
     </div>
   )
 }
