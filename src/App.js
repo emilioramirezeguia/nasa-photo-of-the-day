@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BASE_URL, API_KEY  } from "./constants/secrets.js";
 import "./App.css";
+import Image from "./components/image/image.js";
 
 function App() {
   const [nasa, setNasa] = useState([]);
@@ -18,10 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun <span role="img" aria-label='go!'>🚀</span>!
-      </p>
+      <Image url={nasa.url}/>
     </div>
   );
 }
